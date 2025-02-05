@@ -1,7 +1,7 @@
 <?php
 
         $host="localhost";
-        $dbname= "BBMS";
+        $dbname= "RedPulse";
         $dbusername= "root";
         $dbpassword= '';
 
