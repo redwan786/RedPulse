@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`) VALUES
                                                                    (2, 'doctor', 'doctor', 'doctor@gmail.com', '$2y$10$8AcRbtS8.dla0Jvtg1KJGOUn3dRSOvHmPG387azTsF41FX5kw5yXO'),
-                                                                   (3, 'ajf', '123', 'doctor123@gmail.com', 'ajhdFIQEV986(d^*ir^f');
+                                                                   (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
 
 -- --------------------------------------------------------
 
