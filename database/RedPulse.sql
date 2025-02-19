@@ -1,6 +1,8 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET
+SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+06:00";
+SET
+time_zone = "+06:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -19,21 +21,22 @@ SET time_zone = "+06:00";
 --
 
 DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin` (
-                         `id` bigint(20) NOT NULL,
-                         `name` varchar(255) NOT NULL,
-                         `username` varchar(255) NOT NULL,
-                         `email` varchar(255) NOT NULL,
-                         `pwd` varchar(255) NOT NULL
+CREATE TABLE `admin`
+(
+    `id`       bigint(20) NOT NULL,
+    `name`     varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `email`    varchar(255) NOT NULL,
+    `pwd`      varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`) VALUES
-                                                                   (2, 'doctor', 'doctor', 'doctor@gmail.com', '$2y$10$8AcRbtS8.dla0Jvtg1KJGOUn3dRSOvHmPG387azTsF41FX5kw5yXO'),
-                                                                   (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
+INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`)
+VALUES (2, 'doctor', 'doctor', 'doctor@gmail.com', '$2y$10$8AcRbtS8.dla0Jvtg1KJGOUn3dRSOvHmPG387azTsF41FX5kw5yXO'),
+       (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
 
 -- --------------------------------------------------------
 
@@ -42,24 +45,25 @@ INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`) VALUES
 --
 
 DROP TABLE IF EXISTS `blood`;
-CREATE TABLE `blood` (
-                         `id` bigint(20) NOT NULL,
-                         `AP` bigint(20) DEFAULT NULL,
-                         `AN` bigint(20) DEFAULT NULL,
-                         `BP` bigint(20) DEFAULT NULL,
-                         `BN` bigint(20) DEFAULT NULL,
-                         `ABP` bigint(20) DEFAULT NULL,
-                         `ABN` bigint(20) DEFAULT NULL,
-                         `OP` bigint(20) DEFAULT NULL,
-                         `ON` bigint(20) DEFAULT NULL
+CREATE TABLE `blood`
+(
+    `id`  bigint(20) NOT NULL,
+    `AP`  bigint(20) DEFAULT NULL,
+    `AN`  bigint(20) DEFAULT NULL,
+    `BP`  bigint(20) DEFAULT NULL,
+    `BN`  bigint(20) DEFAULT NULL,
+    `ABP` bigint(20) DEFAULT NULL,
+    `ABN` bigint(20) DEFAULT NULL,
+    `OP`  bigint(20) DEFAULT NULL,
+    `ON`  bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `blood`
 --
 
-INSERT INTO `blood` (`id`, `AP`, `AN`, `BP`, `BN`, `ABP`, `ABN`, `OP`, `ON`) VALUES
-    (1, 0, 0, 1, 5, 6, 2, 7, 4);
+INSERT INTO `blood` (`id`, `AP`, `AN`, `BP`, `BN`, `ABP`, `ABN`, `OP`, `ON`)
+VALUES (1, 0, 0, 1, 5, 6, 2, 7, 4);
 
 -- --------------------------------------------------------
 
@@ -68,22 +72,23 @@ INSERT INTO `blood` (`id`, `AP`, `AN`, `BP`, `BN`, `ABP`, `ABN`, `OP`, `ON`) VAL
 --
 
 DROP TABLE IF EXISTS `donate`;
-CREATE TABLE `donate` (
-                          `id` bigint(20) NOT NULL,
-                          `donor_id` bigint(20) NOT NULL,
-                          `username` varchar(255) NOT NULL,
-                          `disease` varchar(255) NOT NULL,
-                          `blood` varchar(10) NOT NULL,
-                          `unit` bigint(20) NOT NULL,
-                          `status` varchar(255) NOT NULL DEFAULT 'pending'
+CREATE TABLE `donate`
+(
+    `id`       bigint(20) NOT NULL,
+    `donor_id` bigint(20) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `disease`  varchar(255) NOT NULL,
+    `blood`    varchar(10)  NOT NULL,
+    `unit`     bigint(20) NOT NULL,
+    `status`   varchar(255) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donate`
 --
 
-INSERT INTO `donate` (`id`, `donor_id`, `username`, `disease`, `blood`, `unit`, `status`) VALUES
-    (1, 5, 'venkatasai24', 'nothing', 'B-', 1, 'approved');
+INSERT INTO `donate` (`id`, `donor_id`, `username`, `disease`, `blood`, `unit`, `status`)
+VALUES (1, 5, 'venkatasai24', 'nothing', 'B-', 1, 'approved');
 
 -- --------------------------------------------------------
 
@@ -92,21 +97,23 @@ INSERT INTO `donate` (`id`, `donor_id`, `username`, `disease`, `blood`, `unit`, 
 --
 
 DROP TABLE IF EXISTS `donor`;
-CREATE TABLE `donor` (
-                         `id` bigint(20) NOT NULL,
-                         `name` varchar(255) NOT NULL,
-                         `username` varchar(255) NOT NULL,
-                         `email` varchar(255) NOT NULL,
-                         `pwd` varchar(255) NOT NULL,
-                         `blood` varchar(10) NOT NULL
+CREATE TABLE `donor`
+(
+    `id`       bigint(20) NOT NULL,
+    `name`     varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `email`    varchar(255) NOT NULL,
+    `pwd`      varchar(255) NOT NULL,
+    `blood`    varchar(10)  NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donor`
 --
 
-INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
-    (5, 'Vedurupaka Venkata Sai', 'venkatasai24', 'venkatasai24042004@gmail.com', '$2y$10$Kd5ykwrCfU6VIoS/0M5uEey9LgE8331ff8nwAYMnKHk2VLD678OD.', 'B-');
+INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`)
+VALUES (5, 'Vedurupaka Venkata Sai', 'venkatasai24', 'venkatasai24042004@gmail.com',
+        '$2y$10$Kd5ykwrCfU6VIoS/0M5uEey9LgE8331ff8nwAYMnKHk2VLD678OD.', 'B-');
 
 -- --------------------------------------------------------
 
@@ -115,21 +122,23 @@ INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
 --
 
 DROP TABLE IF EXISTS `patient`;
-CREATE TABLE `patient` (
-                           `id` bigint(20) NOT NULL,
-                           `name` varchar(255) NOT NULL,
-                           `username` varchar(255) NOT NULL,
-                           `email` varchar(255) NOT NULL,
-                           `pwd` varchar(255) NOT NULL,
-                           `blood` varchar(255) NOT NULL
+CREATE TABLE `patient`
+(
+    `id`       bigint(20) NOT NULL,
+    `name`     varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `email`    varchar(255) NOT NULL,
+    `pwd`      varchar(255) NOT NULL,
+    `blood`    varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
-    (12, 'Vedurupaka Venkata Sai', 'venkatasai24', 'venkatasai24042004@gmail.com', '$2y$10$CKRsoSpPcEk7kGBNVNP7xuND9FhVLqLDdkEGCxkqO3uoghC5zz9Ha', 'B+');
+INSERT INTO `patient` (`id`, `name`, `username`, `email`, `pwd`, `blood`)
+VALUES (12, 'Vedurupaka Venkata Sai', 'venkatasai24', 'venkatasai24042004@gmail.com',
+        '$2y$10$CKRsoSpPcEk7kGBNVNP7xuND9FhVLqLDdkEGCxkqO3uoghC5zz9Ha', 'B+');
 
 -- --------------------------------------------------------
 
@@ -138,22 +147,23 @@ INSERT INTO `patient` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
 --
 
 DROP TABLE IF EXISTS `request`;
-CREATE TABLE `request` (
-                           `id` bigint(20) NOT NULL,
-                           `patient_id` bigint(20) NOT NULL,
-                           `username` varchar(255) NOT NULL,
-                           `reason` varchar(255) NOT NULL,
-                           `blood` varchar(10) NOT NULL,
-                           `unit` bigint(20) NOT NULL,
-                           `status` varchar(255) NOT NULL DEFAULT 'pending'
+CREATE TABLE `request`
+(
+    `id`         bigint(20) NOT NULL,
+    `patient_id` bigint(20) NOT NULL,
+    `username`   varchar(255) NOT NULL,
+    `reason`     varchar(255) NOT NULL,
+    `blood`      varchar(10)  NOT NULL,
+    `unit`       bigint(20) NOT NULL,
+    `status`     varchar(255) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `request`
 --
 
-INSERT INTO `request` (`id`, `patient_id`, `username`, `reason`, `blood`, `unit`, `status`) VALUES
-    (1, 12, 'venkatasai24', 'low blood levels', 'B+', 2, 'approved');
+INSERT INTO `request` (`id`, `patient_id`, `username`, `reason`, `blood`, `unit`, `status`)
+VALUES (1, 12, 'venkatasai24', 'low blood levels', 'B+', 2, 'approved');
 
 --
 -- Indexes for dumped tables
