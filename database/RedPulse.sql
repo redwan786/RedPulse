@@ -117,7 +117,15 @@ CREATE TABLE `donor`
 
 INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
                                                                             (6, 'rabbi', 'rabbi', 'rabbi@gmail.com', '$2y$10$2g8TRgDNzRMfs.RPuDfK7u9BQAfLGby4y.FJJB/BCvJksghN9I2Ra', 'O-'),
-                                                                            (7, 'redwan', 'redwan', 'redwan@gmail.com', '$2y$10$XBpHGzjZV./E6ebN8ovK4e6xommtIhbWM9y84DBVqnZBI47D2zJsC', 'A+');
+                                                                            (7, 'redwan', 'redwan', 'redwan@gmail.com', '$2y$10$XBpHGzjZV./E6ebN8ovK4e6xommtIhbWM9y84DBVqnZBI47D2zJsC', 'A+'),
+                                                                            (8, 'ratul', 'ratul', 'ratul@gmail.com', '$2y$10$eTsrs4PC5l/CLmtecbO05ekg5UmsD1RGF6T8hb9FZlBbiSNYdy8Wi', 'B-'),
+                                                                            (9, 'rakib', 'rakib', 'rakib@gmail.com', '$2y$10$TqAhC/eNO6FMKL5AHrmEhuRf2innxG39PpJpQJnMepezvatdnaH1q', 'O-'),
+                                                                            (10, 'fahim', 'fahim', 'fahim@gmail.com', '$2y$10$TiVtAwTTKXv87VPXJtX1I.mhQ4tfnPM24bWeDl5sSMEvHkcV4iE9G', 'B-'),
+                                                                            (11, 'simul', 'simul', 'simul@gmail.com', '$2y$10$awq7eaqfkydmN13z41qlYOtSt1eduK.1iRIKThuzxGR0PMGOuj0Ae', 'O-'),
+                                                                            (12, 'riyan', 'riyan', 'riyan@gmail.com', '$2y$10$SrpxTMeDHG0Z34vdjQGfWuof3EtsZ9ZixOQhjV3vBBg6xCOIH.WPK', 'AB+'),
+                                                                            (13, 'shovo', 'shovo', 'shovo@gmail.com', '$2y$10$NZ3Flp8j1KoAHFttBFdkA.OTgN5D.WcYA/tv43yHFVxqgxYiZ6oqO', 'O+'),
+                                                                            (14, 'rahul', 'rahul', 'rahul@gmail.com', '$2y$10$tNbPcj2skszlIH492hMUgum7l/uoN3lIF7uOLtMkZtA6WS8RhtvMm', 'B-');
+
 
 -- --------------------------------------------------------
 
