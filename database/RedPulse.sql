@@ -5,11 +5,6 @@ SET
 time_zone = "+06:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `RedPulse`
 --
@@ -19,7 +14,6 @@ time_zone = "+06:00";
 --
 -- Table structure for table `admin`
 --
-
 
 DROP TABLE IF EXISTS `admin`;
 
@@ -37,9 +31,8 @@ CREATE TABLE `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`)
-VALUES
-    (2, 'doctor', 'doctor', 'doctor@gmail.com', 'doctorpass123'),
-    (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
+VALUES (2, 'doctor', 'doctor', 'doctor@gmail.com', 'doctorpass123'),
+       (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
 
 -- --------------------------------------------------------
 
@@ -268,6 +261,53 @@ ALTER TABLE `request`
 
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- 1. Join Example: Joining donate, donor, and request tables
+SELECT donor.name     AS donor_name,
+       donate.unit    AS donate_unit,
+       request.reason AS request_reason,
+       request.unit   AS requested_unit
+FROM donate
+         JOIN
+     donor ON donate.donor_id = donor.id
+         JOIN
+     request ON request.patient_id = donor.id
+WHERE request.status = 'approved';
+
+-- 2. Aggregating Data: Showing total donations per blood type
+SELECT donor.blood      AS blood_type,
+       COUNT(donate.id) AS total_donations
+FROM donate
+         JOIN
+     donor ON donate.donor_id = donor.id
+GROUP BY donor.blood;
+
+-- 3. Filtering Data: Showing approved donation requests with patient blood type
+SELECT request.id     AS request_id,
+       patient.name   AS patient_name,
+       patient.blood  AS patient_blood,
+       request.unit   AS requested_unit,
+       request.status AS request_status
+FROM request
+         JOIN
+     patient ON request.patient_id = patient.id
+WHERE request.status = 'approved';
+
+-- 4. Subquery: Donors who donated more than the average number of units
+SELECT donor.name       AS donor_name,
+       SUM(donate.unit) AS total_donated
+FROM donate
+         JOIN
+     donor ON donate.donor_id = donor.id
+GROUP BY donor.id
+HAVING total_donated > (SELECT AVG(unit) FROM donate);
+
+-- 5. Join and Sorting: Sorting approved donation requests by the most recent
+SELECT request.id     AS request_id,
+       patient.name   AS patient_name,
+       request.reason AS reason,
+       request.unit   AS unit_requested,
+       request.status AS status
+FROM request
+         JOIN
+     patient ON request.patient_id = patient.id
+ORDER BY request.id DESC;
