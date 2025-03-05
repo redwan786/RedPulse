@@ -31,8 +31,9 @@ CREATE TABLE `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`)
-VALUES (2, 'doctor', 'doctor', 'doctor@gmail.com', 'doctorpass123'),
-       (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
+VALUES
+    (2, 'doctor', 'doctor', 'doctor@gmail.com', 'doctorpass123'),
+    (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE `donate`
 --
 
 INSERT INTO `donate` (`id`, `donor_id`, `username`, `disease`, `blood`, `unit`, `status`)
-VALUES (1, 5, 'venkatasai24', 'nothing', 'B-', 1, 'approved');
+VALUES (1, 5, 'redwan786', 'nothing', 'B-', 1, 'approved');
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,7 @@ CREATE TABLE `donor`
 --
 
 INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`)
-VALUES (5, 'Vedurupaka Venkata Sai', 'venkatasai24', 'venkatasai24042004@gmail.com',
+VALUES (5, 'Redwan Hossen', 'redONE', 'me.redwan@gmail.com',
         '$2y$10$Kd5ykwrCfU6VIoS/0M5uEey9LgE8331ff8nwAYMnKHk2VLD678OD.', 'B-');
 
 -- --------------------------------------------------------
@@ -133,7 +134,7 @@ CREATE TABLE `patient`
 --
 
 INSERT INTO `patient` (`id`, `name`, `username`, `email`, `pwd`, `blood`)
-VALUES (12, 'Vedurupaka Venkata Sai', 'venkatasai24', 'venkatasai24042004@gmail.com',
+VALUES (12, 'Redwan Hossen', 'redONE', 'me.redwan@gmail.com',
         '$2y$10$CKRsoSpPcEk7kGBNVNP7xuND9FhVLqLDdkEGCxkqO3uoghC5zz9Ha', 'B+');
 
 -- --------------------------------------------------------
@@ -159,7 +160,7 @@ CREATE TABLE `request`
 --
 
 INSERT INTO `request` (`id`, `patient_id`, `username`, `reason`, `blood`, `unit`, `status`)
-VALUES (1, 12, 'venkatasai24', 'low blood levels', 'B+', 2, 'approved');
+VALUES (1, 12, 'redONE', 'low blood levels', 'B+', 2, 'approved');
 
 --
 -- Indexes for dumped tables
@@ -262,52 +263,68 @@ ALTER TABLE `request`
 COMMIT;
 
 -- 1. Join Example: Joining donate, donor, and request tables
-SELECT donor.name     AS donor_name,
-       donate.unit    AS donate_unit,
-       request.reason AS request_reason,
-       request.unit   AS requested_unit
-FROM donate
-         JOIN
-     donor ON donate.donor_id = donor.id
-         JOIN
-     request ON request.patient_id = donor.id
-WHERE request.status = 'approved';
+SELECT
+    donor.name AS donor_name,
+    donate.unit AS donate_unit,
+    request.reason AS request_reason,
+    request.unit AS requested_unit
+FROM
+    donate
+        JOIN
+    donor ON donate.donor_id = donor.id
+        JOIN
+    request ON request.patient_id = donor.id
+WHERE
+    request.status = 'approved';
 
 -- 2. Aggregating Data: Showing total donations per blood type
-SELECT donor.blood      AS blood_type,
-       COUNT(donate.id) AS total_donations
-FROM donate
-         JOIN
-     donor ON donate.donor_id = donor.id
-GROUP BY donor.blood;
+SELECT
+    donor.blood AS blood_type,
+    COUNT(donate.id) AS total_donations
+FROM
+    donate
+        JOIN
+    donor ON donate.donor_id = donor.id
+GROUP BY
+    donor.blood;
 
 -- 3. Filtering Data: Showing approved donation requests with patient blood type
-SELECT request.id     AS request_id,
-       patient.name   AS patient_name,
-       patient.blood  AS patient_blood,
-       request.unit   AS requested_unit,
-       request.status AS request_status
-FROM request
-         JOIN
-     patient ON request.patient_id = patient.id
-WHERE request.status = 'approved';
+SELECT
+    request.id AS request_id,
+    patient.name AS patient_name,
+    patient.blood AS patient_blood,
+    request.unit AS requested_unit,
+    request.status AS request_status
+FROM
+    request
+        JOIN
+    patient ON request.patient_id = patient.id
+WHERE
+    request.status = 'approved';
 
 -- 4. Subquery: Donors who donated more than the average number of units
-SELECT donor.name       AS donor_name,
-       SUM(donate.unit) AS total_donated
-FROM donate
-         JOIN
-     donor ON donate.donor_id = donor.id
-GROUP BY donor.id
-HAVING total_donated > (SELECT AVG(unit) FROM donate);
+SELECT
+    donor.name AS donor_name,
+    SUM(donate.unit) AS total_donated
+FROM
+    donate
+        JOIN
+    donor ON donate.donor_id = donor.id
+GROUP BY
+    donor.id
+HAVING
+    total_donated > (SELECT AVG(unit) FROM donate);
 
 -- 5. Join and Sorting: Sorting approved donation requests by the most recent
-SELECT request.id     AS request_id,
-       patient.name   AS patient_name,
-       request.reason AS reason,
-       request.unit   AS unit_requested,
-       request.status AS status
-FROM request
-         JOIN
-     patient ON request.patient_id = patient.id
-ORDER BY request.id DESC;
+SELECT
+    request.id AS request_id,
+    patient.name AS patient_name,
+    request.reason AS reason,
+    request.unit AS unit_requested,
+    request.status AS status
+FROM
+    request
+        JOIN
+    patient ON request.patient_id = patient.id
+ORDER BY
+    request.id DESC;
