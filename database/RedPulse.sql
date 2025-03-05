@@ -84,8 +84,15 @@ CREATE TABLE `donate`
 -- Dumping data for table `donate`
 --
 
-INSERT INTO `donate` (`id`, `donor_id`, `username`, `disease`, `blood`, `unit`, `status`)
-VALUES (1, 5, 'redwan786', 'nothing', 'B-', 1, 'approved');
+INSERT INTO `donate` (`id`, `donor_id`, `username`, `disease`, `blood`, `unit`, `status`) VALUES
+                                                                                              (2, 6, 'rabbi', 'Depression', 'O-', 1, 'approved'),
+                                                                                              (3, 7, 'redwan', 'mone dukkho', 'A+', 3, 'approved'),
+                                                                                              (4, 7, 'redwan', 'Pressure Anek', 'A+', 6, 'approved'),
+                                                                                              (5, 7, 'redwan', '1st', 'A+', 10, 'approved'),
+                                                                                              (7, 7, 'redwan', '2nd', 'A+', 2, 'approved'),
+                                                                                              (8, 7, 'redwan', 'test3', 'A+', 2, 'rejected'),
+                                                                                              (9, 7, 'redwan', 'tryAgain', 'A+', 1, 'pending'),
+                                                                                              (10, 7, 'redwan', 'tryAgain2', 'A+', 1, 'pending');
 
 -- --------------------------------------------------------
 
@@ -108,9 +115,9 @@ CREATE TABLE `donor`
 -- Dumping data for table `donor`
 --
 
-INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`)
-VALUES (5, 'Redwan Hossen', 'redONE', 'me.redwan@gmail.com',
-        '$2y$10$Kd5ykwrCfU6VIoS/0M5uEey9LgE8331ff8nwAYMnKHk2VLD678OD.', 'B-');
+INSERT INTO `donor` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
+                                                                            (6, 'rabbi', 'rabbi', 'rabbi@gmail.com', '$2y$10$2g8TRgDNzRMfs.RPuDfK7u9BQAfLGby4y.FJJB/BCvJksghN9I2Ra', 'O-'),
+                                                                            (7, 'redwan', 'redwan', 'redwan@gmail.com', '$2y$10$XBpHGzjZV./E6ebN8ovK4e6xommtIhbWM9y84DBVqnZBI47D2zJsC', 'A+');
 
 -- --------------------------------------------------------
 
@@ -133,9 +140,11 @@ CREATE TABLE `patient`
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`id`, `name`, `username`, `email`, `pwd`, `blood`)
-VALUES (12, 'Redwan Hossen', 'redONE', 'me.redwan@gmail.com',
-        '$2y$10$CKRsoSpPcEk7kGBNVNP7xuND9FhVLqLDdkEGCxkqO3uoghC5zz9Ha', 'B+');
+INSERT INTO `patient` (`id`, `name`, `username`, `email`, `pwd`, `blood`) VALUES
+                                                                              (13, 'redwan', 'redwan', 'redwan@gmail.com', '$2y$10$IEucEUBlePmhfsZfGxAv6.lnWzzgtjWVVvcYGuuVrmj8WmsQ2BNuG', 'A+'),
+                                                                              (14, 'rabbi', 'rabbi', 'rabbi@gmail.com', '$2y$10$aNp1EnulSTuz2TAoKTinCO7zAJFEsJLu244hHIB6ZpwMIxmpq7.le', 'O-'),
+                                                                              (15, 'razzak', 'razzak', 'arazzak@gmail.com', '$2y$10$LGzuZKB89KaGrBEHy0YfNuOQPiPSV94QgIvMxbhxqyYQK27OLVH5S', 'A+');
+
 
 -- --------------------------------------------------------
 
@@ -159,8 +168,16 @@ CREATE TABLE `request`
 -- Dumping data for table `request`
 --
 
-INSERT INTO `request` (`id`, `patient_id`, `username`, `reason`, `blood`, `unit`, `status`)
-VALUES (1, 12, 'redONE', 'low blood levels', 'B+', 2, 'approved');
+INSERT INTO `request` (`id`, `patient_id`, `username`, `reason`, `blood`, `unit`, `status`) VALUES
+                                                                                                (2, 13, 'redwan', 'Fever', 'A+', 2, 'rejected'),
+                                                                                                (3, 15, 'razzak', 'test', 'A+', 2, 'approved'),
+                                                                                                (4, 13, 'redwan', 'need', 'A+', 1, 'approved'),
+                                                                                                (5, 13, 'redwan', 'need 2', 'A+', 4, 'approved'),
+                                                                                                (6, 13, 'redwan', 'tesstt', 'A+', 5, 'rejected due to insufficient blood stock of A+'),
+                                                                                                (7, 13, 'redwan', 'test2', 'A+', 4, 'rejected'),
+                                                                                                (8, 13, 'redwan', 'test 50', 'A+', 2, 'approved'),
+                                                                                                (9, 13, 'redwan', 'NeedEm', 'A+', 1, 'pending'),
+                                                                                                (10, 13, 'redwan', 'NeedEm2', 'A+', 1, 'pending');
 
 --
 -- Indexes for dumped tables
