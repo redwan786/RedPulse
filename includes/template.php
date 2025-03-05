@@ -265,7 +265,7 @@
                             <input type="text" id='.$name2.' name='.$name2.' class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="units">Units</label>
+                            <label for="units">Amounts</label>
                             <input type="number" id="units" name="unit" class="form-control">
                         </div>
                         <div class="text-center">
@@ -298,7 +298,7 @@
             <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);border-radius:16px;">
                 <div class="card-body transparent-bg">
                     <p class="card-text">'.$name1.' : ' . $row[$name2] . '</p>
-                    <p class="card-text">Units : ' . $row['unit'] . '</p>
+                    <p class="card-text">Amounts : ' . $row['unit'] . '</p>
                     <b><p class="card-text">' . $row['status'] . '</p></b>
                 </div>
             </div>

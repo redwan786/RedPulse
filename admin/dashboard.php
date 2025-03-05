@@ -224,7 +224,9 @@ function check_errors()
         echo '
             <form method="post" action="delete.php">
                 <input type="hidden" name="id" value="' . $row['id'] . '">
-                <button class="btn" type="submit" name=' . $type . '><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="btn" type="submit" name=' . $type . ' style="border: 1px solid #35f1cb !important;" >Delete</button>
+
+           <!-- <button class="btn" type="submit" name=' . $type . ' ><i class="fa fa-trash" aria-hidden="true">Delete</i></button> -->
             </form>';
         echo '</div>';
         echo '</div>';
@@ -255,8 +257,8 @@ function check_errors()
                         <p class="card-text">Amount : ' . $row['unit'] . '</p>
                         <form method="post" action=' . $path . '>
                             <input type="hidden" name="id" value="' . $row['id'] . '">
-                            <button class="btn" type="submit" name="approve"><i class="fa fa-check" aria-hidden="true"></i></button>
-                            <button style="margin-left:20px;" class="btn" type="submit" name="reject"><i class="fa fa-times" aria-hidden="true"></i></button>
+                            <button class="btn" type="submit" name="approve" style="border: 1px solid #35f1cb !important;"><i class="fa fa-check" aria-hidden="true">Approve</i></button>   
+                            <button class="btn" type="submit" name="reject" style="border: 1px solid #35f1cb !important;"><i class="fa fa-times" aria-hidden="true">Reject</i></button>
                         </form>
                     </div>
                 </div>

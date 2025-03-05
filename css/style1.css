@@ -10399,3 +10399,8 @@ a.text-dark:focus, a.text-dark:hover {
         border-color: #dee2e6
     }
 }
+
+.btn-border{
+    border: 1px solid #35f1cb !important;
+}
+

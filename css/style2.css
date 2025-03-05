@@ -2917,3 +2917,7 @@
     overflow: visible;
     clip: auto
 }
+
+.btn-border{
+    border: 1px solid #35f1cb !important;
+}

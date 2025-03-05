@@ -21,7 +21,7 @@
             }
             if($unit && $unit<0) 
             {
-                $errors["request_negative"] = "Blood units cannot be negative!";
+                $errors["request_negative"] = "Blood amount cannot be negative!";
             }
 
 
