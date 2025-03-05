@@ -20,7 +20,7 @@
             }
             if($unit && $unit<0) 
             {
-                $errors["donate_negative"] = "Blood units cannot be negative!";
+                $errors["donate_negative"] = "Blood Amount cannot be negative!";
             }
 
             if($errors)

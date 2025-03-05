@@ -32,7 +32,7 @@ CREATE TABLE `admin`
 
 INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`)
 VALUES
-    (2, 'doctor', 'doctor', 'doctor@gmail.com', 'doctorpass123'),
+    (2, 'BBEM', 'BBEp', 'bbmm@gmail.com', '123'),
     (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
 
 -- --------------------------------------------------------

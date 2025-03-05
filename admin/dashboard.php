@@ -252,7 +252,7 @@ function check_errors()
                         <b><p class="card-title">' . $row['username'] . '</p></b>
                         <p class="card-text">' . $name1 . ' : ' . $row[$name2] . '</p>
                         <p class="card-text">Blood Group : ' . $row['blood'] . '</p>
-                        <p class="card-text">Units : ' . $row['unit'] . '</p>
+                        <p class="card-text">Amount : ' . $row['unit'] . '</p>
                         <form method="post" action=' . $path . '>
                             <input type="hidden" name="id" value="' . $row['id'] . '">
                             <button class="btn" type="submit" name="approve"><i class="fa fa-check" aria-hidden="true"></i></button>
@@ -285,7 +285,7 @@ function check_errors()
                         <b><p class="card-title">Id : ' . $row[$name1] . '</p></b>
                         <p class="card-text">' . $name2 . ' : ' . $row[$name3] . '</p>
                         <p class="card-text">Blood Group : ' . $row['blood'] . '</p>
-                        <p class="card-text">Units : ' . $row['unit'] . '</p>
+                        <p class="card-text">Amount : ' . $row['unit'] . '</p>
                         <b><p class="card-text">' . $row['status'] . '</p></b>
                     </div>
                 </div>

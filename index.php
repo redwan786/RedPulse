@@ -80,7 +80,9 @@
 <footer class="footer"
 		style="background-color:#1abc9c; color: #FFF; padding: 15px; text-align: center; position: absolute; bottom: 0; width: 100%;">
 	<!-- Add content for your footer here -->
-	&copy; <a style="color:#FFF;" href="https://github.com/redwan786">redwan786</a> and
+	&copy; <a style="color:#FFF;" href="https://github.com/redwan786">redONE</a>,
+	<a style="color:#FFF;" href="https://github.com/caesium72">caesium</a>,
+	<a style="color:#FFF;" href="https://github.com/jakaria76">jakaria</a>,
 	<a style="color:#FFF;" href="https://github.com/redwan786/RedPulse">Team</a>
 	❤️. All rights reserved. 2025
 </footer>
