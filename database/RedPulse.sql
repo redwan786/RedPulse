@@ -32,8 +32,8 @@ CREATE TABLE `admin`
 
 INSERT INTO `admin` (`id`, `name`, `username`, `email`, `pwd`)
 VALUES
-    (2, 'BBEM', 'BBEp', 'bbmm@gmail.com', '123'),
-    (3, 'ajf', '123', 'doctor123@gmail.com', '12345678');
+    (2, 'BBMS', 'BBMS', 'bbmm@gmail.com', '12345678'),
+    (3, 'redwan', 'redwan', 'redwan@gmail.com', '12345678');
 
 -- --------------------------------------------------------
 
